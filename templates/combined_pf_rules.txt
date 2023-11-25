@@ -1,0 +1,3 @@
+clients_if="wg0"
+
+{{{rules}}}

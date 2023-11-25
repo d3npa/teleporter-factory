@@ -1,0 +1,11 @@
+# {{iface}} '{{{display_name}}}'
+wgkey "{{wg_key}}" rdomain {{rdomain}}
+wgpeer "{{wg_peer_pub}}" \
+	{{#wg_peer_psk}}
+	wgpsk "{{wg_peer_psk}}" \
+	{{/wg_peer_psk}}
+	wgendpoint {{wg_peer_endpoint_ip}} {{wg_peer_endpoint_port}} \
+	wgaip {{wg_peer_allowed_ips}} \
+	wgpka 60
+inet {{iface_ip}}
+!route -T{{rdomain}} add 0/0 {{gateway_ip}}
