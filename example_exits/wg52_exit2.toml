@@ -1,0 +1,11 @@
+display_name = "SomeVPN (Sapporo)"
+pf_id = "exit2"
+rdomain = 52
+iface = "wg52"
+iface_ip = "10.0.0.2/24"
+wg_key = "example_wg_private_key"
+wg_peer_pub = "example_wg_peer_public_key"
+wg_peer_endpoint_ip = "sapporo.somevpn.example"
+wg_peer_endpoint_port = 51820
+gateway_ip = "10.0.0.1"
+table_persist_path = "/var/teleport-rs/tables/exit2.txt"
