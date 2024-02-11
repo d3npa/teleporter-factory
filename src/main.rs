@@ -47,7 +47,7 @@ fn generate_tar(exits: Exits) {
             "etc",
             "etc/pf",
             "etc/teleport-hub",
-            "/var/teleport-hub/tables",
+            "var/teleport-hub/tables",
         ] {
             let dir = format!("{wrk_dir}/{sub_dir}");
             fs::create_dir_all(&dir)
@@ -76,6 +76,9 @@ fn generate_tar(exits: Exits) {
         let mut tar_builder = tar::Builder::new(archive);
         tar_builder
             .append_dir_all("etc", format!("{wrk_dir}/etc"))
+            .unwrap();
+        tar_builder
+            .append_dir_all("var", format!("{wrk_dir}/var"))
             .unwrap();
         tar_builder
             .finish()
