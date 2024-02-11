@@ -1,4 +1,4 @@
 # rules for '{{{display_name}}}'
-table <{{pf_id}}> persist file "/var/teleport-rs/tables/{{pf_id}}.txt"
+table <{{pf_id}}> persist file "/var/teleport-hub/tables/{{pf_id}}.txt"
 match in on $clients_if from <{{pf_id}}> to !$clients_if:network rtable {{rdomain}}
 pass out on {{iface}} nat-to {{iface}}

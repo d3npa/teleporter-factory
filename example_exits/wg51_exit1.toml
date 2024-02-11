@@ -8,4 +8,4 @@ wg_peer_pub = "example_wg_peer_public_key"
 wg_peer_endpoint_ip = "tokyo.somevpn.example"
 wg_peer_endpoint_port = 51820
 gateway_ip = "10.0.0.1"
-table_persist_path = "/var/teleport-rs/tables/exit1.txt"
+table_persist_path = "/var/teleport-hub/tables/exit1.txt"

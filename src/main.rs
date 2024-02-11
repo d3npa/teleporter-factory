@@ -15,7 +15,7 @@ fn generate_stdout(exits: Exits) {
     println!("\x1b[95m[*] /etc/pf/teleport_hub.conf\x1b[0m\n");
     println!("{}", exits.gen_pf_rules());
 
-    println!("\x1b[95m[*] /etc/teleport-rs/exits.toml\x1b[0m\n");
+    println!("\x1b[95m[*] /etc/teleport-hub/exits.toml\x1b[0m\n");
     println!("{}", exits.gen_hub_config());
 }
 
@@ -42,7 +42,13 @@ fn generate_tar(exits: Exits) {
             }
         }
 
-        for sub_dir in vec!["", "etc", "etc/pf", "etc/teleport-rs"] {
+        for sub_dir in vec![
+            "",
+            "etc",
+            "etc/pf",
+            "etc/teleport-hub",
+            "/var/teleport-hub/tables",
+        ] {
             let dir = format!("{wrk_dir}/{sub_dir}");
             fs::create_dir_all(&dir)
                 .expect(&format!("creating directory {dir}"));
@@ -56,7 +62,7 @@ fn generate_tar(exits: Exits) {
         let pf_rules = format!("{wrk_dir}/etc/pf/teleport_hub.conf");
         wtf(pf_rules, exits.gen_pf_rules());
 
-        let exits_toml = format!("{wrk_dir}/etc/teleport-rs/exits.toml");
+        let exits_toml = format!("{wrk_dir}/etc/teleport-hub/exits.toml");
         wtf(exits_toml, exits.gen_hub_config());
     }
 

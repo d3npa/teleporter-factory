@@ -8,12 +8,12 @@ the default behavior is to print the generated configuration to stdout, but a co
 
 ```
 $ cargo run -- --tar
-    Finished dev [unoptimized + debuginfo] target(s) in 0.01s
+    Finished dev [unoptimized + debuginfo] target(s) in 0.28s
      Running `target/debug/teleporter-factory --tar`
 [*] creating './tmp/teleporter_factory_wrkdir/etc/hostname.wg51'
 [*] creating './tmp/teleporter_factory_wrkdir/etc/hostname.wg52'
 [*] creating './tmp/teleporter_factory_wrkdir/etc/hostname.wg53'
 [*] creating './tmp/teleporter_factory_wrkdir/etc/pf/teleport_hub.conf'
-[*] creating './tmp/teleporter_factory_wrkdir/etc/teleport-rs/exits.toml'
+[*] creating './tmp/teleporter_factory_wrkdir/etc/teleport-hub/exits.toml'
 [*] saved to './teleporters.tar'
 ```
