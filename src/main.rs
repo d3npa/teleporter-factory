@@ -22,9 +22,9 @@ fn generate_stdout(exits: Exits) {
 fn generate_tar(exits: Exits) {
     let wrk_dir = "./tmp/teleporter_factory_wrkdir";
 
-    println!("[*] cleaning '{wrk_dir}'");
     if fs::metadata(wrk_dir).is_ok() {
         // if it exists
+        println!("[*] cleaning '{wrk_dir}'");
         fs::remove_dir_all(wrk_dir).unwrap();
     }
 
@@ -62,7 +62,8 @@ fn generate_tar(exits: Exits) {
 
     // creating archive
     {
-        let archive_path = format!("{wrk_dir}/teleporters.tar");
+        let archive_name = "teleporters.tar";
+        let archive_path = format!("{wrk_dir}/{archive_name}");
         let archive =
             fs::File::create(&archive_path).expect("creating {archive_path}");
 
@@ -74,9 +75,13 @@ fn generate_tar(exits: Exits) {
             .finish()
             .expect(&format!("creating tar archive at {archive_path}"));
 
-        fs::copy(archive_path, "./archive.tar")
+        fs::copy(archive_path, format!("./{archive_name}"))
             .expect("copying {archive_path} to cwd");
+
+        println!("[*] saved to './{archive_name}'");
     }
+
+    fs::remove_dir_all("./tmp").expect("removing './tmp'");
 }
 
 fn main() {
