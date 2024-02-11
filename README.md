@@ -17,3 +17,5 @@ $ cargo run -- --tar
 [*] creating './tmp/teleporter_factory_wrkdir/etc/teleport-hub/exits.toml'
 [*] saved to './teleporters.tar'
 ```
+
+you also need to add `include "/etc/pf/teleport_hub.conf"` to `/etc/pf.conf`.
